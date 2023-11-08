@@ -9,5 +9,5 @@
     "strictPropertyInitialization": true,
     "types": ["vitest/importMeta"]
   },
-  "include": ["index.ts", "main.ts"]
+  "include": ["index.ts"]
 }

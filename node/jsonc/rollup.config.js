@@ -1,2 +1,2 @@
-import {both} from "@toolchain/rollup"
-export default both
+import {lib} from "@toolchain/rollup"
+export default lib
