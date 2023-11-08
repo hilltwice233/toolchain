@@ -9,7 +9,7 @@
     "strictPropertyInitialization": true,
     "skipLibCheck": true,
     "skipDefaultLibCheck": true,
-    "types": ["vitest/importMeta"]
+    "types": ["vitest/importMeta", "node"]
   },
   "include": ["index.ts"]
 }
