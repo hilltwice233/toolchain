@@ -14,6 +14,7 @@ export const plugins = [
   terser({compress: true, mangle: true}),
 ]
 
+/** Parse format (commonjs/esm) from manifest (package.json file). */
 function parseFormat() {
   const raw = readFileSync(join(cwd(), "package.json"))
   const manifest = JSON.parse(raw.toString())
