@@ -39,6 +39,7 @@
     "ints",
     "pubspec",
     "redeclares",
+    "rollup",
     "todos",
     "unawaited",
     "writeln"
