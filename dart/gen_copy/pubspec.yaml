@@ -1,6 +1,6 @@
 name: gen_copy
 description: Generate copy related methods for dart classes.
-version: 0.0.0
+version: 1.0.0
 publish_to: "none"
 environment: {sdk: ">=3.1.5 <4.0.0"}
 
