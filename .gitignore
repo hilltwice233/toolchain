@@ -1,1 +1,3 @@
-
+# Dart/Flutter related.
+.dart_tools/
+pubspec.lock
