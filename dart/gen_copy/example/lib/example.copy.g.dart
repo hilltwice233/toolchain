@@ -5,3 +5,9 @@
 // **************************************************************************
 
 part of 'example.dart';
+
+extension CopyExample on Example {
+  Example copyWith() {
+    return const Example();
+  }
+}
