@@ -5,5 +5,10 @@
   // Default formatter and format on save.
   "editor.formatOnSave": true,
   "editor.codeActionsOnSave": {"source.organizeImports": true},
-  "editor.defaultFormatter": "esbenp.prettier-vscode"
+  "editor.defaultFormatter": "esbenp.prettier-vscode",
+
+  // Shell related formatter specification.
+  "[shellscript]": {"editor.defaultFormatter": "foxundermoon.shell-format"},
+  "[properties]": {"editor.defaultFormatter": "foxundermoon.shell-format"},
+  "[ignore]": {"editor.defaultFormatter": "foxundermoon.shell-format"}
 }
