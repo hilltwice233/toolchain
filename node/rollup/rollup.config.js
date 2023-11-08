@@ -7,7 +7,7 @@ import {readFileSync} from "node:fs"
 import {join} from "node:path"
 import {cwd} from "node:process"
 import {defineConfig} from "rollup"
-import declareTypescript from "rollup-plugin-dts"
+import {dts} from "rollup-plugin-dts"
 
 export const plugins = [
   typescript(),
@@ -36,18 +36,18 @@ export const bin = defineConfig({
   output: {file: "main.js", format},
 })
 
-export const dts = defineConfig({
-  plugins: [declareTypescript()],
+export const bareDts = defineConfig({
+  plugins: [dts()],
   input: "index.ts",
   output: {file: "index.d.ts", format},
 })
 
-const bareLib = defineConfig({
+export const bareLib = defineConfig({
   plugins,
   input: "index.ts",
   output: {file: "index.js", format},
 })
 
-export const lib = defineConfig([bareLib, dts])
+export const lib = defineConfig([bareLib, bareDts])
 
-export const both = defineConfig([bareLib, dts, bin])
+export const both = defineConfig([bareLib, bareDts, bin])

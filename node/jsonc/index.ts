@@ -1,5 +1,15 @@
+import {readFileSync} from "node:fs"
+
 export function removeJsonComments(raw: string): string {
   return raw.replaceAll(/(\/\/.*\n)|(\/\*(.|[\r\n])*\*\/)/g, "")
+}
+
+export function parseJsonc(raw: string) {
+  return JSON.parse(removeJsonComments(raw))
+}
+
+export function parseJsoncFile(path: string) {
+  return parseJsonc(readFileSync(path).toString())
 }
 
 if (import.meta.vitest) {

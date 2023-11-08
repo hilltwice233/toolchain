@@ -1,3 +1,5 @@
-declare function removeJsonComments(raw: string): string
+declare function removeJsonComments(raw: string): string;
+declare function parseJsonc(raw: string): any;
+declare function parseJsoncFile(path: string): any;
 
-export { removeJsonComments };
+export { parseJsonc, parseJsoncFile, removeJsonComments };
