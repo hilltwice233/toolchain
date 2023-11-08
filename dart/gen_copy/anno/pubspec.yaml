@@ -1,6 +1,6 @@
 name: gen_copy_anno
 description: Annotations of the copy code generator.
-version: 0.0.0
+version: 1.0.0
 publish_to: "none"
 environment: {sdk: ">=3.1.5 <4.0.0"}
 
