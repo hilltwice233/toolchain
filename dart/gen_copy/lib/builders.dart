@@ -1,5 +1,5 @@
 import 'package:build/build.dart';
-import 'package:gen_copy/src/copy.dart';
+import 'package:gen_copy/copy_generator.dart';
 import 'package:source_gen/source_gen.dart';
 
 Builder copyBuilder(BuilderOptions options) {
