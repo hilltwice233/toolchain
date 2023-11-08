@@ -10,7 +10,7 @@ extension CopyExample on Example {
   Example copyWith(
     String? name,
     int? age,
-// ignore: avoid_positional_boolean_parameters
+    // ignore: avoid_positional_boolean_parameters
     bool? hasYChromosome,
   ) {
     return Example(

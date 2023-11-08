@@ -14,7 +14,7 @@ String generateCopyWith(Element element) {
       final name = field.displayName;
       final type = field.type.toString();
 
-      if (type == 'bool') input.writeln(ignorePosBoolLint);
+      if (type == 'bool') input.writeln('    $ignorePosBoolLint');
       input.writeln('$type? $name,');
       output.writeln('$name: $name ?? this.$name,');
     }
