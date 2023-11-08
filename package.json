@@ -2,5 +2,8 @@
   "name": "toolchain-monorepo",
   "description": "Monorepo root for the toolchain repo.",
   "version": "0.0.0",
-  "type": "module"
+  "type": "module",
+  "devDependencies": {
+    "rollup": "^4.3.0"
+  }
 }
