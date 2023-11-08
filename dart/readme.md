@@ -1,3 +1,3 @@
-# Dart toolchain
+# Dart/Flutter toolchain
 
-Pure dart (non-flutter) toolchain.
+- [lint_options](./lint_options)
