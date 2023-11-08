@@ -1,0 +1,1 @@
+import{readFileSync as n}from"node:fs";function r(n){return n.replaceAll(/(\/\/.*\n)|(\/\*(.|[\r\n])*\*\/)/g,"")}function t(n){return JSON.parse(r(n))}function e(r){return t(n(r).toString())}export{t as parseJsonc,e as parseJsoncFile,r as removeJsonComments};
