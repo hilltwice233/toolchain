@@ -7,6 +7,7 @@ import {readFileSync} from "node:fs"
 import {join} from "node:path"
 import {cwd} from "node:process"
 import {defineConfig} from "rollup"
+import declareTypescript from "rollup-plugin-dts"
 
 export const plugins = [
   typescript(),
@@ -23,16 +24,30 @@ function parseFormat() {
   return manifest["type"] === "module" ? "esm" : "commonjs"
 }
 
+/**
+ * Parsed and shared format. @see {parseFormat}.
+ * This value will always be used, so make it a global preprocessed value.
+ */
+const format = parseFormat()
+
 export const bin = defineConfig({
   plugins,
   input: "main.ts",
-  output: {file: "main.js", format: parseFormat()},
+  output: {file: "main.js", format},
 })
 
-export const lib = defineConfig({
+export const dts = defineConfig({
+  plugins: [declareTypescript()],
+  input: "index.ts",
+  output: {file: "index.d.ts", format},
+})
+
+const bareLib = defineConfig({
   plugins,
   input: "index.ts",
-  output: {file: "index.js", format: parseFormat()},
+  output: {file: "index.js", format},
 })
 
-export const both = defineConfig([lib, bin])
+export const lib = defineConfig([bareLib, dts])
+
+export const both = defineConfig([bareLib, dts, bin])
