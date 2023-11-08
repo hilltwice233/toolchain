@@ -1,0 +1,12 @@
+{
+  "name": "@toolchain/compress-json",
+  "description": "Compress json and remove json comments.",
+  "version": "0.0.0",
+  "type": "module",
+  "scripts": {
+    "build": "rollup --config rollup.config.js"
+  },
+  "dependencies": {
+    "@toolchain/rollup": "link:../rollup"
+  }
+}
