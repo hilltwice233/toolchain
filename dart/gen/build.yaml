@@ -6,3 +6,9 @@ builders:
     build_extensions: {".dart": [".copy.g.dart"]}
     auto_apply: dependents
     build_to: source
+  state_data:
+    import: "package:toolchain_gen/builders.dart"
+    builder_factories: ["stateDataBuilder"]
+    build_extensions: {".dart": [".data.g.dart"]}
+    auto_apply: dependents
+    build_to: source
