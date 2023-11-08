@@ -8,6 +8,7 @@
   },
   "devDependencies": {
     "@types/node": "^20.9.0",
+    "@vscode/vsce": "^2.22.0",
     "rollup": "^4.3.0",
     "vitest": "^0.34.6"
   }
