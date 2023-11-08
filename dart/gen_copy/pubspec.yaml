@@ -1,0 +1,14 @@
+name: gen_copy
+description: Generate copy related methods for dart classes.
+version: 0.0.0
+publish_to: "none"
+environment: {sdk: ">=3.1.5 <4.0.0"}
+
+dependencies:
+  gen_copy_anno: {path: ./anno}
+  analyzer: ^6.2.0
+  build: ^2.4.1
+  source_gen: ^1.4.0
+
+dev_dependencies:
+  lint_options: {path: ../lint_options}

@@ -9,7 +9,7 @@ include: package:flutter_lints/flutter.yaml
 linter:
   rules:
     # Error rules.
-    always_use_package_imports: true
+    # always_use_package_imports: true # conflict with prefer_relative_imports.
     avoid_slow_async_io: true
     avoid_type_to_string: true
     cancel_subscriptions: true
@@ -24,7 +24,7 @@ linter:
     no_adjacent_strings_in_list: true
     no_self_assignments: true
     no_wildcard_variable_uses: true
-    # prefer_relative_imports: true # conflict with always_use_package_imports
+    prefer_relative_imports: true
     prefer_void_to_null: true
     test_types_in_equals: true
     throw_in_finally: true
