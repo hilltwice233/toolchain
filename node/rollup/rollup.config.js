@@ -32,3 +32,5 @@ export const lib = defineConfig({
   input: "index.ts",
   output: {file: "index.js", format: parseFormat()},
 })
+
+export const both = defineConfig([lib, bin])
