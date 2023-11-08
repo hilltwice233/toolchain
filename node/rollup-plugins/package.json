@@ -3,7 +3,6 @@
   "description": "Shared rollup options.",
   "version": "1.0.0",
   "type": "module",
-  "main": "rollup.config.js",
   "dependencies": {
     "@rollup/plugin-commonjs": "^25.0.7",
     "@rollup/plugin-node-resolve": "^15.2.3",
