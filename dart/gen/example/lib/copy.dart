@@ -1,10 +1,10 @@
 import 'package:toolchain_anno/annotations.dart';
 
-part 'example.copy.g.dart';
+part 'copy.copy.g.dart';
 
 @Copy()
-class Example {
-  const Example({
+class CopyExample {
+  const CopyExample({
     this.name = 'hilltwice',
     this.age = 22,
     this.hasYChromosome = true,
