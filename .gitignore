@@ -1,3 +1,9 @@
-# Dart/Flutter related.
+# Dart dependencies and lockfile.
 .dart_tools/
 pubspec.lock
+
+# Node dependencies and lockfile (support npm, pnpm and yarn).
+node_modules/
+package-lock.json
+pnpm-lock.yaml
+yarn.lock
