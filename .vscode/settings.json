@@ -6,7 +6,8 @@
   "explorer.fileNesting.enabled": true,
   "explorer.fileNesting.expand": false,
   "explorer.fileNesting.patterns": {
-    "readme.md": "license.txt"
+    "readme.md": "license.txt",
+    "pubspec.yaml": "pubspec.lock, analysis_options.yaml"
   },
 
   // Default formatter and format on save.
