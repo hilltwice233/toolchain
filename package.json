@@ -4,6 +4,8 @@
   "version": "0.0.0",
   "type": "module",
   "devDependencies": {
-    "rollup": "^4.3.0"
+    "@types/node": "^20.8.10",
+    "rollup": "^4.3.0",
+    "typescript": "^5.2.2"
   }
 }

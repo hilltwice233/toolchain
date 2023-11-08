@@ -11,3 +11,6 @@ yarn.lock
 # Rust output folder and lockfile
 target/
 Cargo.lock
+
+# VSCode extension compilation output.
+extension/

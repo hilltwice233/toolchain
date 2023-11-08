@@ -1,0 +1,22 @@
+{
+  "name": "enhanced-color-theme",
+  "description": "A color theme series that make your coding more comfortable.",
+  "version": "0.0.0",
+  "private": true,
+  "contributes": {
+    "themes": [
+      {
+        "label": "Enhanced Light Theme Source",
+        "id": "enhanced.light.source",
+        "uiTheme": "vs",
+        "path": "./themes/light-color-theme.json"
+      },
+      {
+        "label": "Enhanced Dark Theme Source",
+        "id": "enhanced.dark.source",
+        "uiTheme": "vs-dark",
+        "path": "./themes/dark-color-theme.json"
+      }
+    ]
+  }
+}
