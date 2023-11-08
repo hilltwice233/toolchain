@@ -43,6 +43,7 @@
     "rollup",
     "todos",
     "unawaited",
+    "vitest",
     "writeln"
   ]
 }
