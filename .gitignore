@@ -1,5 +1,6 @@
-# Dart dependencies and lockfile.
+# Dart/Flutter compilation output and lockfile.
 .dart_tool/
+build/
 pubspec.lock
 
 # Node dependencies and lockfile (support npm, pnpm and yarn).
