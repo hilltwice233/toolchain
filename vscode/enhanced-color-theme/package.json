@@ -2,6 +2,7 @@
   "name": "enhanced-color-theme",
   "description": "A color theme series that make your coding more comfortable.",
   "version": "0.0.0",
+  "type": "module",
   "private": true,
   "contributes": {
     "themes": [
@@ -18,5 +19,11 @@
         "path": "./themes/dark-color-theme.json"
       }
     ]
+  },
+  "scripts": {
+    "build": "node scripts/build.js"
+  },
+  "dependencies": {
+    "@toolchain/jsonc": "link:../../node/jsonc"
   }
 }
