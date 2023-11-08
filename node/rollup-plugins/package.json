@@ -1,7 +1,7 @@
 {
   "name": "@toolchain/rollup-plugins",
   "description": "Shared rollup options.",
-  "version": "0.0.0",
+  "version": "1.0.0",
   "type": "module",
   "main": "rollup.config.js",
   "dependencies": {
