@@ -17,8 +17,11 @@
   // Shell related formatter specification.
   "[shellscript]": {"editor.defaultFormatter": "foxundermoon.shell-format"},
   "[properties]": {"editor.defaultFormatter": "foxundermoon.shell-format"},
-  "[ignore]": {
-    "editor.defaultFormatter": "foxundermoon.shell-format"
-  },
+  "[ignore]": {"editor.defaultFormatter": "foxundermoon.shell-format"},
+
+  // Spell checker options.
+  "cSpell.useGitignore": true,
+  "cSpell.ignorePaths": [],
+  "cSpell.enableFiletypes": ["*"],
   "cSpell.words": ["hilltwice"]
 }
