@@ -23,5 +23,16 @@
   "cSpell.useGitignore": true,
   "cSpell.ignorePaths": [],
   "cSpell.enableFiletypes": ["*"],
-  "cSpell.words": ["esbenp", "foxundermoon", "hilltwice", "pubspec"]
+  "cSpell.words": [
+    "bools",
+    "combinators",
+    "esbenp",
+    "foxundermoon",
+    "hilltwice",
+    "ints",
+    "pubspec",
+    "redeclares",
+    "todos",
+    "unawaited"
+  ]
 }
