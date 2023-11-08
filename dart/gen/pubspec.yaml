@@ -12,3 +12,4 @@ dependencies:
 
 dev_dependencies:
   lint_options: {path: ../lint_options}
+  test: ^1.24.9

@@ -15,3 +15,16 @@ class StateDataGenerator extends GeneratorForAnnotation<StateData> {
     ''';
   }
 }
+
+class StateDataNames {
+  StateDataNames(String raw) {
+    if (!raw.endsWith('Data')) throw Exception('invalid state data name');
+    data = raw;
+    bare = raw.substring(0, raw.length - 4);
+    inherit = '_Inherited$bare';
+  }
+
+  late final String bare;
+  late final String data;
+  late final String inherit;
+}
