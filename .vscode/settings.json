@@ -8,6 +8,7 @@
   "explorer.fileNesting.patterns": {
     "readme.md": "license.txt",
     "pubspec.yaml": "pubspec.lock, analysis_options.yaml",
+    "package.json": "package-lock.json, pnpm-lock.yaml, yarn.lock",
     "*.dart": "${capture}.*.g.dart"
   },
 
