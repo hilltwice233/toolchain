@@ -28,3 +28,21 @@ class StateDataNames {
   late final String data;
   late final String inherit;
 }
+
+String generateInherit(StateDataNames names) {
+  return '''
+    class ${names.inherit} extends InheritedWidget {
+      const ${names.inherit}({
+        required this.data,
+        required super.child,
+      });
+
+      final ${names.data} data;
+
+      @override
+      bool updateShouldNotify(covariant ${names.inherit} old) {
+        return data != old.data;
+      }
+    }
+  ''';
+}
