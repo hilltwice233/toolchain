@@ -18,7 +18,7 @@ class StateDataGenerator extends GeneratorForAnnotation<StateData> {
 
 class StateDataNames {
   StateDataNames(String raw) {
-    if (!raw.endsWith('Data')) throw Exception('invalid state data name');
+    if (!raw.endsWith('Data')) throw Exception('invalid state data name: $raw');
     data = raw;
     bare = raw.substring(0, raw.length - 4);
     inherit = '_Inherited$bare';
