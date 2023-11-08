@@ -7,3 +7,7 @@ node_modules/
 package-lock.json
 pnpm-lock.yaml
 yarn.lock
+
+# Rust output folder and lockfile
+target/
+Cargo.lock
