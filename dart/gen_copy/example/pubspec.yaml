@@ -9,3 +9,5 @@ dependencies:
 
 dev_dependencies:
   lint_options: {path: ../../lint_options}
+  gen_copy: {path: ../}
+  build_runner: ^2.4.6
