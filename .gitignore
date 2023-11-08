@@ -1,5 +1,5 @@
 # Dart dependencies and lockfile.
-.dart_tools/
+.dart_tool/
 pubspec.lock
 
 # Node dependencies and lockfile (support npm, pnpm and yarn).
