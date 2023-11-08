@@ -1,5 +1,5 @@
 {
-  "name": "@toolchain/compress-json",
+  "name": "@toolchain/jsonc",
   "description": "Compress json and remove json comments.",
   "version": "0.0.0",
   "type": "module",
