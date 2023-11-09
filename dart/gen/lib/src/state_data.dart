@@ -120,6 +120,7 @@ String generateStateful(Element element) {
       final field = child as FieldElement;
       final name = field.name;
       final type = field.type.toString();
+
       input.writeln('$type? $name,');
       output.writeln('$name: $name,');
     }
