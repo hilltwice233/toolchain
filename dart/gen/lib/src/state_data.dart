@@ -23,8 +23,16 @@ class StateDataGenerator extends GeneratorForAnnotation<StateData> {
 
 extension ParseStateData on StateData {
   StateData updateFrom(ConstantReader annotation) {
+    final copy = annotation.peek('copy')?.boolValue ?? this.copy;
+    final stateful = annotation.peek('stateful')?.boolValue ?? this.stateful;
+    final stateless = annotation.peek('stateless')?.boolValue ?? this.stateless;
+
+    final requiresCopy = copy | stateful;
+
     return StateData(
-      copy: annotation.peek('copy')?.boolValue ?? copy,
+      copy: requiresCopy,
+      stateful: stateful,
+      stateless: stateless,
     );
   }
 }
