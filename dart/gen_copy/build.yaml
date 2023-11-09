@@ -1,8 +1,0 @@
-# see https://github.com/dart-lang/build/blob/master/docs/build_yaml_format.md
-builders:
-  state_data_builder:
-    import: "package:gen_copy/builders.dart"
-    builder_factories: ["copyBuilder"]
-    build_extensions: {".dart": [".copy.g.dart"]}
-    auto_apply: dependents
-    build_to: source

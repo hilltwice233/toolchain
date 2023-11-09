@@ -4,16 +4,15 @@
 // CopyGenerator
 // **************************************************************************
 
-part of 'example.dart';
+part of 'copy.dart';
 
-extension CopyExample on Example {
-  Example copyWith(
+extension CopyExampleCopy on ExampleCopy {
+  ExampleCopy copyWith({
     String? name,
     int? age,
-    // ignore: avoid_positional_boolean_parameters
     bool? hasYChromosome,
-  ) {
-    return Example(
+  }) {
+    return ExampleCopy(
       name: name ?? this.name,
       age: age ?? this.age,
       hasYChromosome: hasYChromosome ?? this.hasYChromosome,

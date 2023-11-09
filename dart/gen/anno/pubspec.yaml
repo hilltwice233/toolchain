@@ -1,4 +1,4 @@
-name: gen_copy_anno
+name: toolchain_anno
 description: Annotations of the copy code generator.
 version: 1.0.0
 publish_to: "none"

@@ -7,7 +7,7 @@
   "explorer.fileNesting.expand": false,
   "explorer.fileNesting.patterns": {
     "readme.md": "license.txt",
-    "pubspec.yaml": "pubspec.lock, analysis_options.yaml",
+    "pubspec.yaml": "pubspec.lock",
     "package.json": "package-lock.json, pnpm-lock.yaml, yarn.lock",
     "*.ts": "${capture}.js, ${capture}.d.ts",
     "*.dart": "${capture}.*.g.dart"

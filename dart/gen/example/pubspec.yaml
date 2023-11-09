@@ -1,13 +1,14 @@
-name: gen_copy_example
-description: Example for copy code generator.
+name: toolchain_gen_example
+description: Example for code generator.
 version: 0.0.0
 publish_to: "none"
 environment: {sdk: ">=3.1.5 <4.0.0"}
 
 dependencies:
-  gen_copy_anno: {path: ../anno}
+  flutter: {sdk: flutter}
+  toolchain_anno: {path: ../anno}
 
 dev_dependencies:
   lint_options: {path: ../../lint_options}
-  gen_copy: {path: ../}
+  toolchain_gen: {path: ../}
   build_runner: ^2.4.6
