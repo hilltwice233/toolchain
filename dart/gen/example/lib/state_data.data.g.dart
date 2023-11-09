@@ -53,17 +53,22 @@ class ExampleStateHandler extends StatefulWidget {
   const ExampleStateHandler({
     required this.child,
     super.key,
-    this.didUpdate = const {},
+    this.onUpdate = const {},
     this.initData = const ExampleStateData(),
   });
 
-  final Set<void Function(ExampleStateData data)> didUpdate;
+  final Set<void Function(ExampleStateData data)> onUpdate;
   final ExampleStateData initData;
   final Widget child;
 
   _ExampleStateHandlerState? _maybeStateOf(BuildContext context) => context
       .dependOnInheritedWidgetOfExactType<_InheritedExampleStateHandler>()
       ?.state;
+
+  Set<void Function(ExampleStateData data)>? maybeOnUpdateOf(
+    BuildContext context,
+  ) =>
+      _maybeStateOf(context)?.onUpdate;
 
   void maybeUpdateFrom(BuildContext context, ExampleStateData data) {
     final state = _maybeStateOf(context);
@@ -92,6 +97,11 @@ class ExampleStateHandler extends StatefulWidget {
     return state!;
   }
 
+  Set<void Function(ExampleStateData data)> onUpdateOf(
+    BuildContext context,
+  ) =>
+      _stateOf(context).onUpdate;
+
   void updateFrom(BuildContext context, ExampleStateData data) {
     final state = _stateOf(context);
     if (data != state.data) state.data = data;
@@ -116,11 +126,18 @@ class ExampleStateHandler extends StatefulWidget {
 }
 
 class _ExampleStateHandlerState extends State<ExampleStateHandler> {
-  late ExampleStateData _data = widget.initData;
+  late final _onUpdate = widget.onUpdate;
+  Set<void Function(ExampleStateData data)> get onUpdate => _onUpdate;
 
+  late ExampleStateData _data = widget.initData;
   ExampleStateData get data => _data;
   set data(ExampleStateData value) {
-    if (data != value) setState(() => _data = value);
+    if (data != value) {
+      setState(() => _data = value);
+      for (final action in onUpdate) {
+        action.call(data);
+      }
+    }
   }
 
   @override

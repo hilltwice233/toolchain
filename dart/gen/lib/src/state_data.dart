@@ -131,17 +131,22 @@ String generateStateful(Element element) {
       const ${names.handler}({
         required this.child,
         super.key,
-        this.didUpdate = const {},
+        this.onUpdate = const {},
         this.initData = const ${names.data}(),
       });
 
-      final Set<void Function(${names.data} data)> didUpdate;
+      final Set<void Function(${names.data} data)> onUpdate;
       final ${names.data} initData;
       final Widget child;
 
       ${names.handlerState}? _maybeStateOf(BuildContext context) => context
           .dependOnInheritedWidgetOfExactType<${names.handlerInherit}>()
           ?.state;
+      
+        Set<void Function(${names.data} data)>? maybeOnUpdateOf(
+          BuildContext context,
+        ) =>
+            _maybeStateOf(context)?.onUpdate;
 
       void maybeUpdateFrom(BuildContext context, ${names.data} data) {
         final state = _maybeStateOf(context);
@@ -163,6 +168,11 @@ String generateStateful(Element element) {
         return state!;
       }
 
+      Set<void Function(${names.data} data)> onUpdateOf(
+        BuildContext context,
+      ) =>
+          _stateOf(context).onUpdate;
+
       void updateFrom(BuildContext context, ${names.data} data) {
         final state = _stateOf(context);
         if (data != state.data) state.data = data;
@@ -178,11 +188,18 @@ String generateStateful(Element element) {
     }
 
     class ${names.handlerState} extends State<${names.handler}> {
-      late ${names.data} _data = widget.initData;
+      late final _onUpdate = widget.onUpdate;
+      Set<void Function(${names.data} data)> get onUpdate => _onUpdate;
 
+      late ${names.data} _data = widget.initData;
       ${names.data} get data => _data;
       set data(${names.data} value) {
-        if (data != value) setState(() => _data = value);
+        if (data != value) {
+          setState(() => _data = value);
+          for (final action in onUpdate) {
+            action.call(data);
+          }
+        }
       }
 
       @override
