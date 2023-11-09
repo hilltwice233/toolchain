@@ -69,7 +69,7 @@ String generateInherit(StateDataNames names) {
   ''';
 }
 
-String generateBareStateless(StateDataNames names) {
+String generateStateless(StateDataNames names) {
   return '''
     class ${names.bare} extends StatelessWidget {
       const ${names.bare}({
@@ -99,12 +99,7 @@ String generateBareStateless(StateDataNames names) {
         );
       }
     }
-  ''';
-}
 
-String generateStateless(StateDataNames names) {
-  return '''
-    ${generateBareStateless(names)}
     ${generateInherit(names)}
   ''';
 }
