@@ -18,8 +18,6 @@ class CopyGenerator extends GeneratorForAnnotation<Copy> {
   }
 }
 
-const ignorePosBoolLint = '// ignore: avoid_positional_boolean_parameters';
-
 String generateCopyWith(Element element) {
   final className = element.displayName;
 
@@ -32,7 +30,6 @@ String generateCopyWith(Element element) {
       final name = field.displayName;
       final type = field.type.toString();
 
-      if (type == 'bool') input.writeln('    $ignorePosBoolLint');
       input.writeln('$type? $name,');
       output.writeln('$name: $name ?? this.$name,');
     }
@@ -40,7 +37,7 @@ String generateCopyWith(Element element) {
 
   return '''
     extension Copy$className on $className {
-      $className copyWith(${input.isEmpty ? '' : input}) {
+      $className copyWith(${input.isEmpty ? '' : '{$input}'}) {
         return ${output.isEmpty ? 'const' : ''} $className($output);
       }
     }
