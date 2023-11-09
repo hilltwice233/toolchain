@@ -13,10 +13,13 @@ class StateDataGenerator extends GeneratorForAnnotation<StateData> {
     BuildStep buildStep,
   ) {
     final options = const StateData().updateFrom(annotation);
+    final names = StateDataNames(element.displayName);
+
     return '''
       part of '${buildStep.inputId.pathSegments.last}';
 
       ${options.copy ? generateCopyWith(element) : ''}
+      ${options.stateless ? generateStateless(names) : ''}
     ''';
   }
 }
@@ -63,5 +66,45 @@ String generateInherit(StateDataNames names) {
         return data != old.data;
       }
     }
+  ''';
+}
+
+String generateBareStateless(StateDataNames names) {
+  return '''
+    class ${names.bare} extends StatelessWidget {
+      const ${names.bare}({
+        required this.child,
+        required this.data,
+        super.key,
+      });
+
+      final ${names.data} data;
+      final Widget child;
+
+      ${names.data}? maybeOf(BuildContext context) => context
+          .dependOnInheritedWidgetOfExactType<${names.inherit}>()
+          ?.data;
+
+      ${names.data} of(BuildContext context) {
+        final data = maybeOf(context);
+        assert(data != null, 'cannot find ${names.bare} in context');
+        return data!;
+      }
+
+      @override
+      Widget build(BuildContext context) {
+        return ${names.inherit}(
+          data: data,
+          child: child,
+        );
+      }
+    }
+  ''';
+}
+
+String generateStateless(StateDataNames names) {
+  return '''
+    ${generateBareStateless(names)}
+    ${generateInherit(names)}
   ''';
 }
