@@ -5,3 +5,9 @@
 // **************************************************************************
 
 part of 'state_data.dart';
+
+extension CopyExampleStateData on ExampleStateData {
+  ExampleStateData copyWith() {
+    return const ExampleStateData();
+  }
+}

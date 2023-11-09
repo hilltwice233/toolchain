@@ -4,5 +4,10 @@ class Copy {
 }
 
 class StateData {
-  const StateData();
+  /// Annotation for generate methods for state data management.
+  const StateData({
+    this.copy = false,
+  });
+
+  final bool copy;
 }
