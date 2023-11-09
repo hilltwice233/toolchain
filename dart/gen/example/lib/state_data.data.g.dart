@@ -6,12 +6,6 @@
 
 part of 'state_data.dart';
 
-extension CopyExampleStateData on ExampleStateData {
-  ExampleStateData copyWith() {
-    return const ExampleStateData();
-  }
-}
-
 class ExampleState extends StatelessWidget {
   const ExampleState({
     required this.child,
@@ -52,5 +46,119 @@ class _InheritedExampleState extends InheritedWidget {
   @override
   bool updateShouldNotify(covariant _InheritedExampleState old) {
     return data != old.data;
+  }
+}
+
+class ExampleStateHandler extends StatefulWidget {
+  const ExampleStateHandler({
+    required this.child,
+    super.key,
+    this.didUpdate = const {},
+    this.initData = const ExampleStateData(),
+  });
+
+  final Set<void Function(ExampleStateData data)> didUpdate;
+  final ExampleStateData initData;
+  final Widget child;
+
+  _ExampleStateHandlerState? _maybeStateOf(BuildContext context) => context
+      .dependOnInheritedWidgetOfExactType<_InheritedExampleStateHandler>()
+      ?.state;
+
+  void maybeUpdateFrom(BuildContext context, ExampleStateData data) {
+    final state = _maybeStateOf(context);
+    if (state == null) return;
+    if (data != state.data) state.data = data;
+  }
+
+  void maybeUpdate(
+    BuildContext context, {
+    String? name,
+    int? age,
+    bool? hasYChromosome,
+  }) {
+    final state = _maybeStateOf(context);
+    if (state == null) return;
+    state.data = state.data.copyWith(
+      name: name,
+      age: age,
+      hasYChromosome: hasYChromosome,
+    );
+  }
+
+  _ExampleStateHandlerState _stateOf(BuildContext context) {
+    final state = _maybeStateOf(context);
+    assert(state != null, 'cannot find ExampleStateHandler in context');
+    return state!;
+  }
+
+  void updateFrom(BuildContext context, ExampleStateData data) {
+    final state = _stateOf(context);
+    if (data != state.data) state.data = data;
+  }
+
+  void update(
+    BuildContext context, {
+    String? name,
+    int? age,
+    bool? hasYChromosome,
+  }) {
+    final state = _stateOf(context);
+    state.data = state.data.copyWith(
+      name: name,
+      age: age,
+      hasYChromosome: hasYChromosome,
+    );
+  }
+
+  @override
+  State<ExampleStateHandler> createState() => _ExampleStateHandlerState();
+}
+
+class _ExampleStateHandlerState extends State<ExampleStateHandler> {
+  late ExampleStateData _data = widget.initData;
+
+  ExampleStateData get data => _data;
+  set data(ExampleStateData value) {
+    if (data != value) setState(() => _data = value);
+  }
+
+  @override
+  Widget build(BuildContext context) {
+    return _InheritedExampleStateHandler(
+      state: this,
+      child: ExampleState(
+        data: data,
+        child: widget.child,
+      ),
+    );
+  }
+}
+
+class _InheritedExampleStateHandler extends InheritedWidget {
+  const _InheritedExampleStateHandler({
+    required this.state,
+    required super.child,
+  });
+
+  final _ExampleStateHandlerState state;
+
+  @override
+  bool updateShouldNotify(covariant _InheritedExampleStateHandler old) {
+    return false;
+  }
+}
+
+extension CopyExampleStateData on ExampleStateData {
+  ExampleStateData copyWith({
+    String? name,
+    int? age,
+    bool? hasYChromosome,
+  }) {
+    return ExampleStateData(
+      name: name ?? this.name,
+      age: age ?? this.age,
+      hasYChromosome: hasYChromosome ?? this.hasYChromosome,
+    );
   }
 }
