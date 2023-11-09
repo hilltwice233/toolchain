@@ -27,12 +27,10 @@ extension ParseStateData on StateData {
     final stateful = annotation.peek('stateful')?.boolValue ?? this.stateful;
     final stateless = annotation.peek('stateless')?.boolValue ?? this.stateless;
 
-    final requiresCopy = copy | stateful;
-
     return StateData(
-      copy: requiresCopy,
+      copy: copy | stateful,
       stateful: stateful,
-      stateless: stateless,
+      stateless: stateless | stateful,
     );
   }
 }
